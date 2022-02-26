@@ -15,12 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = require("http");
 const express_1 = __importDefault(require("express"));
 const socket_1 = require("./socket");
-const fs_1 = require("fs");
 const cors_1 = __importDefault(require("cors"));
 const local_events_1 = require("./local_events");
 const dotenv_1 = require("dotenv");
 const api_1 = require("./api");
 const package_exports_1 = require("./../package_exports");
+const connection_1 = require("./connection");
+const mode_1 = require("./mode");
 (0, package_exports_1.log)(package_exports_1.chalk.green('> [process]: ') + package_exports_1.chalk.grey('loading') + package_exports_1.chalk.blue('.env') + package_exports_1.chalk.grey(' file'));
 (0, dotenv_1.config)();
 (0, package_exports_1.log)(package_exports_1.chalk.green('> [ok]: ') + package_exports_1.chalk.grey('data loaded from ') + package_exports_1.chalk.blue('.env'));
@@ -38,12 +39,14 @@ let PORT = process.env.SERVER_PORT || 7071;
 let userCred;
 let socket;
 const loadCredAndSysDetails = () => __awaiter(void 0, void 0, void 0, function* () {
-    if ((0, fs_1.existsSync)(__dirname + '/usercred.json')) {
-        userCred = JSON.parse((0, fs_1.readFileSync)(__dirname + '/usercred.json', { encoding: 'utf-8' }));
-    }
+    userCred = yield mode_1.MachineID.findOne({
+        where: {
+            id: package_exports_1.machineId,
+        }
+    });
+    console.log(userCred);
 });
 const main = (loadData) => __awaiter(void 0, void 0, void 0, function* () {
-    loadData();
     socket = yield (0, socket_1.client)(userCred, 'http://socket.lc-manager.bytecodes.club');
     (0, api_1.apiAccessPoint)(app, loadData, () => __awaiter(void 0, void 0, void 0, function* () {
         socket.disconnect();
@@ -56,5 +59,14 @@ const main = (loadData) => __awaiter(void 0, void 0, void 0, function* () {
     });
     (0, local_events_1.events)(socket);
 });
-main(loadCredAndSysDetails);
+(() => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        yield (0, connection_1.dbConnection)();
+        yield loadCredAndSysDetails();
+        yield main(loadCredAndSysDetails);
+    }
+    catch (error) {
+        console.log(package_exports_1.chalk.red('> [error]: '), error);
+    }
+}))();
 //# sourceMappingURL=server.js.map

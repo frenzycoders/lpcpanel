@@ -7,11 +7,11 @@ export const client = async (userCred: any, url: string) => {
 
     const socket = io(url, {
         extraHeaders: {
-            id: userCred ? userCred.id : 'empty',
+            id: userCred ? userCred.value : 'empty',
             usertype: "Machine",
         },
     });
-    
+
     spinner.stop(true);
     log(chalk.greenBright('> [OK]: ') + chalk.blue('socket server is started on ') + chalk.grey(url));
     return socket;

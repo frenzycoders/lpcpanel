@@ -10,15 +10,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.apiAccessPoint = void 0;
-const fs_1 = require("fs");
+const package_exports_1 = require("./../package_exports");
+const mode_1 = require("./mode");
 const apiAccessPoint = (app, loadData, reloadSocet) => __awaiter(void 0, void 0, void 0, function* () {
     app.post('/change-credentials', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { id } = req.body;
-            (0, fs_1.writeFileSync)(__dirname + '/usercred.json', `{"id":"${id}"}`);
-            let data = JSON.parse((0, fs_1.readFileSync)(__dirname + '/usercred.json', { encoding: 'utf-8' }));
-            yield loadData();
-            reloadSocet();
+            let data = yield mode_1.MachineID.findOne({ where: {
+                    id: package_exports_1.machineId,
+                } });
+            if (!data) {
+                data = mode_1.MachineID.create({ id: package_exports_1.machineId, value: id, status: false });
+                yield data.save();
+            }
+            else {
+                data.value = id;
+                yield data.save();
+            }
+            loadData().then(() => {
+                reloadSocet();
+            });
             res.status(201).send({ message: "Id updated", data });
         }
         catch (error) {
@@ -28,14 +39,11 @@ const apiAccessPoint = (app, loadData, reloadSocet) => __awaiter(void 0, void 0,
     }));
     app.get('/cred', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            if ((0, fs_1.existsSync)(__dirname + '/usercred.json')) {
-                let data = (0, fs_1.readFileSync)(__dirname + '/usercred.json', { encoding: 'utf-8' });
-                data = JSON.parse(data);
-                console.log(data);
-                res.status(200).send(data);
-            }
+            let data = yield mode_1.MachineID.findOne({ where: { id: package_exports_1.machineId } });
+            if (!data)
+                return res.status(404).send();
             else
-                res.status(404).send({ message: "Not found" });
+                res.status(200).send(data);
         }
         catch (error) {
             res.status(500).send({ message: error.message });

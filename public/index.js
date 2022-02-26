@@ -8,12 +8,12 @@ message.style.display = "none";
 (async () => {
     await fetch('http://localhost:7071/cred', { method: "GET" }).then((response) => {
         if (response.status == 200) {
+            console.log(response.json())
             return response.json();
         }
     }).then((data) => {
-
         showMessage('Load user data from system is success');
-        machineId.value = data.id;
+        machineId.value = data.value;
     }).catch((err) => {
         console.log(err);
         showError(err.toString());

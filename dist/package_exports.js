@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.readline = exports.v = exports.table = exports.chalk = exports.pm2 = exports.log = exports.spinner = void 0;
+exports.machineId = exports.readline = exports.v = exports.table = exports.chalk = exports.pm2 = exports.log = exports.spinner = void 0;
 const pm2_1 = __importDefault(require("pm2"));
 const readline_sync_1 = __importDefault(require("readline-sync"));
 const cli_spinner_1 = require("cli-spinner");
@@ -24,4 +24,5 @@ exports.chalk = chalk_1.default;
 exports.table = cli_table3_1.default;
 exports.v = package_json_1.version;
 exports.readline = readline_sync_1.default;
+exports.machineId = 'machineId';
 //# sourceMappingURL=package_exports.js.map

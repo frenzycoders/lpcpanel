@@ -17,7 +17,7 @@ const client = (userCred, url) => __awaiter(void 0, void 0, void 0, function* ()
     package_exports_1.spinner.start();
     const socket = (0, socket_io_client_1.io)(url, {
         extraHeaders: {
-            id: userCred ? userCred.id : 'empty',
+            id: userCred ? userCred.value : 'empty',
             usertype: "Machine",
         },
     });

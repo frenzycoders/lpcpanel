@@ -1,6 +1,6 @@
 {
   "name": "lpcpanel",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
   "type": "dist/index.d.ts",
@@ -53,6 +53,8 @@
     "readline-sync": "^1.4.10",
     "screenshot-desktop": "^1.12.7",
     "socket.io-client": "^4.4.1",
+    "sqlite3": "^5.0.2",
+    "typeorm": "^0.2.44",
     "uuid": "^8.3.2"
   },
   "keywords": [

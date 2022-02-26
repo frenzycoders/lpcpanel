@@ -7,7 +7,9 @@ import cors from 'cors';
 import { events } from "./local_events";
 import { config } from 'dotenv';
 import { apiAccessPoint } from "./api";
-import { chalk, log, spinner } from "./../package_exports";
+import { chalk, log, machineId, spinner } from "./../package_exports";
+import { dbConnection } from "./connection";
+import { MachineID } from "./mode";
 
 log(chalk.green('> [process]: ') + chalk.grey('loading') + chalk.blue('.env') + chalk.grey(' file'));
 config();
@@ -33,16 +35,19 @@ let socket: Socket;
 
 
 const loadCredAndSysDetails = async () => {
-    if (existsSync(__dirname + '/usercred.json')) {
-        userCred = JSON.parse(readFileSync(__dirname + '/usercred.json', { encoding: 'utf-8' }));
-    }
+    userCred = await MachineID.findOne({
+        where: {
+            id: machineId,
+        }
+    });
+    console.log(userCred)
 }
 
 
 
 
 const main = async (loadData: Function) => {
-    loadData();
+
 
     socket = await client(userCred, 'http://socket.lc-manager.bytecodes.club');
 
@@ -62,8 +67,16 @@ const main = async (loadData: Function) => {
     events(socket);
 }
 
+(async () => {
+    try {
+        await dbConnection()
+        await loadCredAndSysDetails()
+        await main(loadCredAndSysDetails);
+    } catch (error) {
+        console.log(chalk.red('> [error]: '), error);
+    }
+})()
 
-main(loadCredAndSysDetails);
 
 
 

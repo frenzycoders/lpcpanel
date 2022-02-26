@@ -23,3 +23,4 @@ export const chalk = c;
 export const table = Table;
 export const v = version;
 export const readline = readlineSync;
+export const machineId = 'machineId';
