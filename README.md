@@ -86,7 +86,7 @@ To stop server after start
 
 Here are some related projects
 source code of user-interface lc-manager this project used as client-side of lpcpanel
-[lc-manager](https://github.com/ByteCodes-Club/scpanel_ui)
+[lc-manager](https://github.com/ByteCode-Club/lpcui)
 
 source code of server of lpcpanel which manager all events 
-[lpc_server](https://github.com/ByteCodes-Club/scpanel_ui)
+[lpc_server](https://github.com/ByteCode-Club/lpc-server/)
