@@ -8,14 +8,17 @@
 ```bash
     First go to http://lc-manager.bytecodes.club and create you account  
 ```
+
 ![App Screenshot](http://utils.bytecodes.club/1.png)
 ![App Screenshot](http://utils.bytecodes.club/2.png)
 
 ```bash
     After that you have to click on + icon which located on navigation and create machine and enter you machine name
 ```
+
 ![App Screenshot](http://utils.bytecodes.club/3.png)
-![App Screenshot](http://utils.bytecodes.club/4.png)
+![App Screenshot](http://utils.bytecodes.club/5.png)
+![App Screenshot](http://utils.bytecodes.club/6.png)
 
 ```bach
     After that your manchine name is now visible on website or app now click on copy icon for copy machine id
