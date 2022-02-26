@@ -33,7 +33,7 @@ let socket: Socket;
 
 
 const loadCredAndSysDetails = async () => {
-    if (existsSync('./usercred.json')) {
+    if (existsSync(__dirname + '/usercred.json')) {
         userCred = JSON.parse(readFileSync('./usercred.json', { encoding: 'utf-8' }));
     }
 }
@@ -54,7 +54,7 @@ const main = async (loadData: Function) => {
 
 
     server.listen(PORT, () => {
-    
+
         log(chalk.green('> [OK]: ') + chalk.blue('server is running '))
         log(chalk.green('> [info]: ') + chalk.grey(PORT.toString()));
         log(chalk.green('> [OK]: ') + chalk.blue(process.env.URL || 'http://127.0.0.1:4321'));

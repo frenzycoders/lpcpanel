@@ -15,8 +15,8 @@ const apiAccessPoint = (app, loadData, reloadSocet) => __awaiter(void 0, void 0,
     app.post('/change-credentials', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
             const { id } = req.body;
-            (0, fs_1.writeFileSync)('./usercred.json', `{"id":"${id}"}`);
-            let data = JSON.parse((0, fs_1.readFileSync)('./usercred.json', { encoding: 'utf-8' }));
+            (0, fs_1.writeFileSync)(__dirname + '/usercred.json', `{"id":"${id}"}`);
+            let data = JSON.parse((0, fs_1.readFileSync)(__dirname + '/usercred.json', { encoding: 'utf-8' }));
             yield loadData();
             reloadSocet();
             res.status(201).send({ message: "Id updated", data });
@@ -28,8 +28,8 @@ const apiAccessPoint = (app, loadData, reloadSocet) => __awaiter(void 0, void 0,
     }));
     app.get('/cred', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            if ((0, fs_1.existsSync)('./usercred.json')) {
-                let data = (0, fs_1.readFileSync)('./usercred.json', { encoding: 'utf-8' });
+            if ((0, fs_1.existsSync)(__dirname + '/usercred.json')) {
+                let data = (0, fs_1.readFileSync)(__dirname + '/usercred.json', { encoding: 'utf-8' });
                 data = JSON.parse(data);
                 console.log(data);
                 res.status(200).send(data);

@@ -38,7 +38,7 @@ let PORT = process.env.SERVER_PORT || 7071;
 let userCred;
 let socket;
 const loadCredAndSysDetails = () => __awaiter(void 0, void 0, void 0, function* () {
-    if ((0, fs_1.existsSync)('./usercred.json')) {
+    if ((0, fs_1.existsSync)(__dirname + '/usercred.json')) {
         userCred = JSON.parse((0, fs_1.readFileSync)('./usercred.json', { encoding: 'utf-8' }));
     }
 });

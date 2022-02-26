@@ -5,9 +5,9 @@ export const apiAccessPoint = async (app: Application, loadData: Function, reloa
     app.post('/change-credentials', async (req: Request, res: Response) => {
         try {
             const { id } = req.body;
-            writeFileSync('./usercred.json', `{"id":"${id}"}`);
+            writeFileSync(__dirname + '/usercred.json', `{"id":"${id}"}`);
 
-            let data = JSON.parse(readFileSync('./usercred.json', { encoding: 'utf-8' }));
+            let data = JSON.parse(readFileSync(__dirname + '/usercred.json', { encoding: 'utf-8' }));
             await loadData();
             reloadSocet();
 
@@ -20,8 +20,8 @@ export const apiAccessPoint = async (app: Application, loadData: Function, reloa
 
     app.get('/cred', async (req: Request, res: Response) => {
         try {
-            if (existsSync('./usercred.json')) {
-                let data = readFileSync('./usercred.json', { encoding: 'utf-8' })
+            if (existsSync(__dirname + '/usercred.json')) {
+                let data = readFileSync(__dirname + '/usercred.json', { encoding: 'utf-8' })
                 data = JSON.parse(data);
                 console.log(data)
                 res.status(200).send(data);
