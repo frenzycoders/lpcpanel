@@ -1,6 +1,6 @@
 import { Socket } from "socket.io-client";
 import { PathLike, promises as fs, createReadStream, exists, existsSync, rmdir, createWriteStream } from 'fs'
-import * as diskUse from 'diskusage';
+
 import { arch, homedir, hostname, platform, release, type, version, } from 'os';
 import archiver from "archiver";
 import { v4 as uuidV4 } from 'uuid'
@@ -39,7 +39,6 @@ export const events = async (socket: Socket) => {
         let disk: any;
         let sysDetails: SysDetails
         if (platform() == 'win32') {
-            // disk = await diskUse.check('c:');
             sysDetails = {
                 operatingSys: platform(),
                 hostName: hostname(),
@@ -54,7 +53,6 @@ export const events = async (socket: Socket) => {
                 available: '262 GB'
             };
         } else {
-            // disk = await diskUse.check(homedir());
             sysDetails = {
                 operatingSys: platform(),
                 hostName: hostname(),
