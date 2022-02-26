@@ -21,7 +21,8 @@ const main = async () => {
                 }
             })
             if (!data) {
-                await MachineID.create({ id: machineId, value: ans, status: false });
+                data = MachineID.create({ id: machineId, value: ans, status: false });
+                await data.save()
             } else {
                 data.value = ans
                 await data.save();
@@ -81,7 +82,7 @@ const main = async () => {
             console.log(chalk.red('> [error]: ')+chalk.redBright('Please setup first'))
             process.exit(0)
         }else{
-            console.log(chalk.green('> [status]: ')+chalk.blue('Server status is : ')+machine.status ? chalk.green('True') : chalk.red('False'));
+            console.log(chalk.green('> [status]: ')+chalk.blue('Server status is : ')+machine.status == 'true' ? chalk.green('True') : chalk.red('False'));
             process.exit()
         }
     }else{

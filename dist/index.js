@@ -30,7 +30,8 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
                 }
             });
             if (!data) {
-                yield mode_1.MachineID.create({ id: package_exports_1.machineId, value: ans, status: false });
+                data = mode_1.MachineID.create({ id: package_exports_1.machineId, value: ans, status: false });
+                yield data.save();
             }
             else {
                 data.value = ans;
@@ -96,7 +97,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             process.exit(0);
         }
         else {
-            console.log(package_exports_1.chalk.green('> [status]: ') + package_exports_1.chalk.blue('Server status is : ') + machine.status ? package_exports_1.chalk.green('True') : package_exports_1.chalk.red('False'));
+            console.log(package_exports_1.chalk.green('> [status]: ') + package_exports_1.chalk.blue('Server status is : ') + machine.status == 'true' ? package_exports_1.chalk.green('True') : package_exports_1.chalk.red('False'));
             process.exit();
         }
     }
