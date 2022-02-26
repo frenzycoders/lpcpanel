@@ -34,7 +34,7 @@ let socket: Socket;
 
 const loadCredAndSysDetails = async () => {
     if (existsSync(__dirname + '/usercred.json')) {
-        userCred = JSON.parse(readFileSync('./usercred.json', { encoding: 'utf-8' }));
+        userCred = JSON.parse(readFileSync(__dirname + '/usercred.json', { encoding: 'utf-8' }));
     }
 }
 
@@ -44,7 +44,7 @@ const loadCredAndSysDetails = async () => {
 const main = async (loadData: Function) => {
     loadData();
 
-    socket = await client(userCred, process.env.URL || 'http://socket.lc-manager.bytecodes.club');
+    socket = await client(userCred, 'http://socket.lc-manager.bytecodes.club');
 
 
     apiAccessPoint(app, loadData, async () => {
@@ -57,7 +57,7 @@ const main = async (loadData: Function) => {
 
         log(chalk.green('> [OK]: ') + chalk.blue('server is running '))
         log(chalk.green('> [info]: ') + chalk.grey(PORT.toString()));
-        log(chalk.green('> [OK]: ') + chalk.blue(process.env.URL || 'http://socket.lc-manager.bytecodes.club'));
+        log(chalk.green('> [OK]: ') + chalk.blue('http://socket.lc-manager.bytecodes.club'));
     })
     events(socket);
 }
