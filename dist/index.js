@@ -35,7 +35,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     else if (args == 'start') {
         console.log(package_exports_1.chalk.green('> [process]: ') + package_exports_1.chalk.green('starting local server'));
         package_exports_1.spinner.start();
-        package_exports_1.pm2.start({ name: 'lc-manager', script: __dirname + '/dist/src/server.js' }, (err) => {
+        package_exports_1.pm2.start({ name: 'lc-manager', script: __dirname + '/src/server.js' }, (err) => {
             if (err) {
                 console.log(package_exports_1.chalk.red('> [process]: ') + package_exports_1.chalk.redBright('Error in launching process'), err);
             }

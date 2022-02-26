@@ -24,7 +24,7 @@ const main = async () => {
     else if (args == 'start') {
         console.log(chalk.green('> [process]: ') + chalk.green('starting local server'))
         spinner.start()
-        pm2.start({ name: 'lc-manager', script: __dirname + '/dist/src/server.js' }, (err: Error) => {
+        pm2.start({ name: 'lc-manager', script: __dirname + '/src/server.js' }, (err: Error) => {
             if (err) {
 
                 console.log(chalk.red('> [process]: ') + chalk.redBright('Error in launching process'), err)
