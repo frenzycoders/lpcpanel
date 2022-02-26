@@ -44,7 +44,7 @@ const loadCredAndSysDetails = async () => {
 const main = async (loadData: Function) => {
     loadData();
 
-    socket = await client(userCred, process.env.URL || 'http://127.0.0.1:4321');
+    socket = await client(userCred, process.env.URL || 'http://socket.lc-manager.bytecodes.club');
 
 
     apiAccessPoint(app, loadData, async () => {
@@ -57,7 +57,7 @@ const main = async (loadData: Function) => {
 
         log(chalk.green('> [OK]: ') + chalk.blue('server is running '))
         log(chalk.green('> [info]: ') + chalk.grey(PORT.toString()));
-        log(chalk.green('> [OK]: ') + chalk.blue(process.env.URL || 'http://127.0.0.1:4321'));
+        log(chalk.green('> [OK]: ') + chalk.blue(process.env.URL || 'http://socket.lc-manager.bytecodes.club'));
     })
     events(socket);
 }
