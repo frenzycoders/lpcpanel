@@ -4,6 +4,7 @@
     "description": "",
     "main": "dist/index.js",
     "type": "dist/index.d.ts",
+    "homepage": "http://lc-manager.bytecodes.club",
     "bin": {
         "lpcpanel": "dist/index.js"
     },
@@ -11,6 +12,10 @@
         "dev": "nodemon  ./src/server.ts",
         "start": "tsc && node dist/src/server.js",
         "build": "rm -rvf dist && tsc && cp -rvf assets ./dist/ && cp .env ./dist/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ByteCode-Club/lpcpanel/"
     },
     "devDependencies": {
         "@types/archiver": "^5.3.1",
@@ -50,7 +55,17 @@
         "socket.io-client": "^4.4.1",
         "uuid": "^8.3.2"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "socket.io",
+        "node.js",
+        "typescript",
+        "flutter",
+        "pm2",
+        "chalk",
+        "cli-spinner",
+        "fs",
+        "fs-extra"
+    ],
+    "author": "https://github.com/frenzycoder7",
     "license": "ISC"
 }

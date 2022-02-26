@@ -22,7 +22,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         if ((0, mongoose_1.isValidObjectId)(ans)) {
             console.log(package_exports_1.chalk.green('> [process]: ') + package_exports_1.chalk.gray('setting up your id :') + package_exports_1.chalk.yellow(ans));
             package_exports_1.spinner.start();
-            yield (0, fs_extra_1.writeFile)('./usercred.json', `{"id":"${ans}"}`);
+            yield (0, fs_extra_1.writeFile)(__dirname + '/usercred.json', `{"id":"${ans}"}`);
             package_exports_1.spinner.stop(true);
             console.log(package_exports_1.chalk.green('> [OK]: ') + package_exports_1.chalk.blue('id setup completed'));
             console.log(package_exports_1.chalk.green('> [info]: ') + package_exports_1.chalk.blue('now access your pc/laptop lc-manager web or mobile application'));
@@ -35,7 +35,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     else if (args == 'start') {
         console.log(package_exports_1.chalk.green('> [process]: ') + package_exports_1.chalk.green('starting local server'));
         package_exports_1.spinner.start();
-        package_exports_1.pm2.start({ name: 'lc-manager', script: './dist/src/server.js' }, (err) => {
+        package_exports_1.pm2.start({ name: 'lc-manager', script: __dirname + '/dist/src/server.js' }, (err) => {
             if (err) {
                 console.log(package_exports_1.chalk.red('> [process]: ') + package_exports_1.chalk.redBright('Error in launching process'), err);
             }
