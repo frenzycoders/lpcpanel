@@ -51,7 +51,7 @@
         "readline-sync": "^1.4.10",
         "screenshot-desktop": "^1.12.7",
         "socket.io-client": "^4.4.1",
-        "sqlite3": "^4.2.0",
+        "sqlite3": "^5.0.2",
         "typeorm": "^0.2.41",
         "uuid": "^8.3.2"
     },
