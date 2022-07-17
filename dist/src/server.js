@@ -47,7 +47,7 @@ const loadCredAndSysDetails = () => __awaiter(void 0, void 0, void 0, function* 
     console.log(userCred);
 });
 const main = (loadData) => __awaiter(void 0, void 0, void 0, function* () {
-    socket = yield (0, socket_1.client)(userCred, 'http://socket.lc-manager.bytecodes.club');
+    socket = yield (0, socket_1.client)(userCred, 'http://socket.lc-manager.myportfolio.club');
     (0, api_1.apiAccessPoint)(app, loadData, () => __awaiter(void 0, void 0, void 0, function* () {
         socket.disconnect();
         socket.connect();
@@ -55,7 +55,7 @@ const main = (loadData) => __awaiter(void 0, void 0, void 0, function* () {
     server.listen(PORT, () => {
         (0, package_exports_1.log)(package_exports_1.chalk.green('> [OK]: ') + package_exports_1.chalk.blue('server is running '));
         (0, package_exports_1.log)(package_exports_1.chalk.green('> [info]: ') + package_exports_1.chalk.grey(PORT.toString()));
-        (0, package_exports_1.log)(package_exports_1.chalk.green('> [OK]: ') + package_exports_1.chalk.blue('http://socket.lc-manager.bytecodes.club'));
+        (0, package_exports_1.log)(package_exports_1.chalk.green('> [OK]: ') + package_exports_1.chalk.blue('http://socket.lc-manager.myportfolio.club'));
     });
     (0, local_events_1.events)(socket);
 });

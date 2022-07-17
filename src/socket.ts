@@ -16,7 +16,3 @@ export const client = async (userCred: any, url: string) => {
     log(chalk.greenBright('> [OK]: ') + chalk.blue('socket server is started on ') + chalk.grey(url));
     return socket;
 }
-
-//http://127.0.0.1:4321
-
-// http://socket.lc-manager.bytecodes.club
