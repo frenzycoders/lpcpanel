@@ -17,22 +17,22 @@ Follow instructions for setup this project for your use.
 - [Install](https://play.google.com/store/apps/details?id=com.bytecodes.lc_mobile) , [Download](http://utils.myportfolio.club/lcaccess.apk) or use [this link](http://lc-manager.myportfolio.club)
 
 - open registration screen and create a account 
-<img src="./images/register.jpg" height=200 width=100 />
+<img src="./images/register.jpg" height=400 width=200 />
 
 - After registration login your account
-![](./images/login.jpg)
+<img src="./images/login.jpg" height=400 width=200 />
 
 - After login you will get home screen
-![](./images/home.jpg)
+<img src="./images/home.jpg" height=400 width=200 />
 
 - Now create machine using create machine button
-![](./images/create_machine.jpg)
+<img src="./images/create_machine.jpg" height=400 width=200 />
 
 - Now press create button
-![](./images/mcahine_created.jpg)
+<img src="./images/mcahine_created.jpg" height=400 width=200 />
 
 - Now you can see your machine is create with name MyMachine
-![](./images/Home_with_machineCreated.jpg)
+<img src="./images/Home_with_machineCreated.jpg" height=400 width=200 />
 
 - Now you can see copy icon on MyMachine Tile click on it. It will copy you Machine Id on you clip board.
 
@@ -64,13 +64,13 @@ Make sure that your laptop is connected to internet.
 - Now open lcaccess app or web app and click on refresh button
 
 - Now you see the status of MyMachine from offline to Online:ihcoeupwiewh8fy8ewyfuh
-![](./images/home_withMachine_activated.jpg)
+<img src="./images/home_withMachine_activated.jpg" height=400 width=200 />
 
 You can see in this image.
 
 - Now press on MyMachine and control you pc or laptop
 
-![](./images/browse_fs.jpg)
+<img src="./images/browse_fs.jpg" height=400 width=200 />
 
 
 ## Features
