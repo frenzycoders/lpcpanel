@@ -17,7 +17,7 @@ Follow instructions for setup this project for your use.
 - [Install](https://play.google.com/store/apps/details?id=com.bytecodes.lc_mobile) , [Download](http://utils.myportfolio.club/lcaccess.apk) or use [this link](http://lc-manager.myportfolio.club)
 
 - open registration screen and create a account 
-![](./images/register.jpg)
+<img src="./images/register.jpg" height=200 width=100 />
 
 - After registration login your account
 ![](./images/login.jpg)
