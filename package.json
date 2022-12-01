@@ -1,21 +1,21 @@
 {
   "name": "lpcpanel",
-  "version": "1.1.5",
+  "version": "1.1.6+1",
   "description": "",
   "main": "dist/index.js",
   "type": "dist/index.d.ts",
-  "homepage": "http://lc-manager.bytecodes.club",
+  "homepage": "https://lpcpanle.netlify.app",
   "bin": {
     "lpcpanel": "dist/index.js"
   },
   "scripts": {
     "dev": "nodemon  ./src/server.ts",
     "start": "tsc && node dist/src/server.js",
-    "build": "rm -rvf dist && tsc && cp -rvf assets ./dist/ && cp .env ./dist/"
+    "build": "rm -rvf dist && tsc && cp .env ./dist/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ByteCode-Club/lpcpanel/"
+    "url": "https://github.com/frenzycoders/lpcpanel/"
   },
   "devDependencies": {
     "@types/archiver": "^5.3.1",

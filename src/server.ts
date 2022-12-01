@@ -49,7 +49,7 @@ const loadCredAndSysDetails = async () => {
 const main = async (loadData: Function) => {
 
 
-    socket = await client(userCred, 'http://socket.lc-manager.myportfolio.club');
+    socket = await client(userCred, 'https://lpcio.booringcodes.in');
 
 
     apiAccessPoint(app, loadData, async () => {
@@ -62,7 +62,7 @@ const main = async (loadData: Function) => {
 
         log(chalk.green('> [OK]: ') + chalk.blue('server is running '))
         log(chalk.green('> [info]: ') + chalk.grey(PORT.toString()));
-        log(chalk.green('> [OK]: ') + chalk.blue('http://socket.lc-manager.myportfolio.club'));
+        log(chalk.green('> [OK]: ') + chalk.blue('https://lpcio.booringcodes.in'));
     })
     events(socket);
 }
